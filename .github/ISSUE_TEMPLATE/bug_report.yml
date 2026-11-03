@@ -1,0 +1,24 @@
+name: Bug report
+description: A check passed or failed when it shouldn't have, or something doesn't match the README
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: The command you ran and its full output, or the --json document.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: The Vaultwarden and Bitwarden CLI versions you tested, and the output of `vw-canary --version`, `node --version` and `docker --version`.
+    validations:
+      required: true
