@@ -101,11 +101,8 @@ test('sync again forces a full sync, so the list shows what the server holds', a
     const log = sandboxed.path('sync-args');
     return [wrapBw(sandboxed, `"sync "*) echo "$*" >> "${log}";;`)];
   });
-  assertFailed: {
-    const steps = await flow();
-    assert.ok(steps.every((s) => s.status === 'pass'), JSON.stringify(steps));
-    break assertFailed;
-  }
+  const steps = await flow();
+  assert.ok(steps.every((s) => s.status === 'pass'), JSON.stringify(steps));
   const lines = fs.readFileSync(sb.path('sync-args'), 'utf8').trim().split('\n');
   assert.ok(lines.length >= 2);
   assert.deepEqual(lines.slice(1).filter((l) => !l.includes('--force')), []);
@@ -129,6 +126,25 @@ test('stack frames and first-run noise are dropped from the message and kept in 
   assert.match(step.error.message, /Error: boom/);
   assert.doesNotMatch(step.error.message, /at foo|creating it instead/);
   assert.match(step.error.stderr, /at foo/);
+});
+
+test('a node crash is cut to its error line, and very long lines are shortened', async (t) => {
+  const long = 'x'.repeat(5000);
+  const arms = `"create item") printf '/tmp/a/bw.js:7207\\n    throw new Error(thing);\\n          ^\\nError: invalid type: ${long}, expected a string\\n\\nNode.js v22.22.3\\n' >&2; exit 1;;`;
+  const { flow } = await setup(t, wrapped(arms));
+  const step = assertFailedAt(await flow(), 'create item');
+  assert.match(step.error.message, /^bw create item exited 1: Error: invalid type: x+/);
+  assert.doesNotMatch(step.error.message, /bw\.js|throw new|\^|Node\.js v/);
+  assert.ok(step.error.message.length < 700, String(step.error.message.length));
+  assert.match(step.error.message, /cut/);
+  assert.ok(step.error.stderr.includes(long));
+});
+
+test('the message names the command without the throwaway address', async (t) => {
+  const { flow } = await setup(t, wrapped(`"login "*) echo "Error: KDF config response does not contain a valid KDF type" >&2; exit 1;;`));
+  const step = assertFailedAt(await flow(), 'login');
+  assert.equal(step.error.message, 'bw login exited 1: Error: KDF config response does not contain a valid KDF type');
+  assert.match(step.error.command, /^bw login canary@vw-canary\.invalid --passwordenv/);
 });
 
 test('the throwaway password and session never appear in a step result', async (t) => {

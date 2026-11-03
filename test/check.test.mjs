@@ -35,6 +35,23 @@ test('a client failure exits 1 and prints the first real error', async (t) => {
   assert.deepEqual(sb.leftovers(), []);
 });
 
+test('a failure keeps the end of the server log, since the container is gone afterwards', async (t) => {
+  const sb = sandbox(t);
+  const tools = fakeTools(sb, { npmWrap: `"create item") echo "Error: Invalid cipher data." >&2; exit 1;;` });
+  const text = await runCli(CHECK, { env: tools.env });
+  assert.match(text.stdout, /Last lines of the server log:\n\s+fake container log line/);
+  const { stdout } = await runCli([...CHECK, '--json'], { env: tools.env });
+  assert.match(JSON.parse(stdout).results[0].server_log, /fake container log line/);
+});
+
+test('a pass does not read the server log', async (t) => {
+  const sb = sandbox(t);
+  const tools = fakeTools(sb);
+  const { stdout } = await runCli([...CHECK, '--json'], { env: tools.env });
+  assert.equal(JSON.parse(stdout).results[0].server_log, null);
+  assert.deepEqual(tools.calls('docker').filter((c) => c.args[0] === 'logs'), []);
+});
+
 test('the resolved server version comes from the image label when there is one', async (t) => {
   const sb = sandbox(t);
   const tools = fakeTools(sb, { env: { FAKE_DOCKER_IMAGE_VERSION: '1.37.5' } });

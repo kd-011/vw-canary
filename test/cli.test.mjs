@@ -72,7 +72,7 @@ test('the JSON schema matches docs/json-schema.md, field for field', async (t) =
   assert.equal(report.exit_code, 1);
   assert.deepEqual(report.summary, { total: 4, passed: 3, failed: 1, errors: 0 });
   const failed = report.results.find((r) => r.status === 'fail');
-  assert.deepEqual(Object.keys(failed).sort(), ['client', 'duration_ms', 'error', 'first_failure', 'server', 'status', 'steps']);
+  assert.deepEqual(Object.keys(failed).sort(), ['client', 'duration_ms', 'error', 'first_failure', 'server', 'server_log', 'status', 'steps']);
   assert.deepEqual(Object.keys(failed.server).sort(), ['image', 'requested', 'resolved']);
   assert.deepEqual(Object.keys(failed.client).sort(), ['package', 'requested', 'resolved']);
   assert.equal(failed.steps.length, 8);

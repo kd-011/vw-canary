@@ -57,7 +57,7 @@ test('a container published anywhere but loopback is refused and removed', async
   const sb = sandbox(t);
   const tools = fakeTools(sb, { env: { FAKE_DOCKER_PORT_OUTPUT: '0.0.0.0:32768' } });
   restoreEnv(t, tools.env);
-  await assert.rejects(startContainer('1.37.1', { root: sb.tmp, readyTimeoutMs: 2000 }), /127\.0\.0\.1/);
+  await assert.rejects(startContainer('1.37.1', { root: sb.tmp, readyTimeoutMs: 2000 }), /published the server on 0\.0\.0\.0:32768, expected only 127\.0\.0\.1/);
   const rm = tools.calls('docker').filter((c) => c.args[0] === 'rm');
   assert.equal(rm.length, 1);
 });
