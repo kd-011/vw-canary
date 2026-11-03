@@ -37,8 +37,11 @@ export function containsHashed(text, hashes) {
   return false;
 }
 
-// kd-011 in commits made locally. GitHub writes the profile's display name on web merges.
+// kd-011 in commits made locally. GitHub writes whatever the profile's display name is on
+// web merges and on the merge commit CI checks out for a pull request, so for commits
+// GitHub made the owner is recognised by address.
 const OWNER_NAMES = new Set(['kd-011', 'KD011']);
+const OWNER_ADDRESS = '229900447+kd-011@users.noreply.github.com';
 
 function trackedTextFiles() {
   const r = git('ls-files', '-z', '--cached', '--others', '--exclude-standard');
@@ -67,7 +70,8 @@ test('no personal data or em dashes anywhere in the tree', { skip: !inRepo }, ()
 export function commitProblems({ an, ae, cn, body }) {
   const bot = an === 'dependabot[bot]';
   const problems = [];
-  if (!OWNER_NAMES.has(an) && !bot) problems.push(`author ${an}`);
+  const madeByGitHub = cn === 'GitHub' && ae === OWNER_ADDRESS;
+  if (!OWNER_NAMES.has(an) && !bot && !madeByGitHub) problems.push(`author ${an}`);
   if (!OWNER_NAMES.has(cn) && cn !== 'GitHub') problems.push(`committer ${cn}`);
   if (!bot && !/@users\.noreply\.github\.com$/.test(ae)) problems.push(`email ${ae}`);
   if (!bot && /claude|anthropic|co-authored-by|generated with/i.test(body)) problems.push('AI trailer');
@@ -90,6 +94,9 @@ test('commit identity rule: bots and web merges pass, anyone else does not', () 
   assert.deepEqual(commitProblems({ ...ok, an: 'KD011', cn: 'KD011' }), []);
   assert.deepEqual(commitProblems({ ...ok, cn: 'GitHub' }), []);
   assert.deepEqual(commitProblems({ an: 'dependabot[bot]', ae: 'x@users.noreply.github.com', cn: 'GitHub', body: `notes ${EM_DASH}` }), []);
+  assert.deepEqual(commitProblems({ ...ok, an: 'Any Display Name', ae: OWNER_ADDRESS, cn: 'GitHub' }), []);
+  assert.notDeepEqual(commitProblems({ ...ok, an: 'Any Display Name', ae: OWNER_ADDRESS }), []);
+  assert.notDeepEqual(commitProblems({ ...ok, an: 'Any Display Name', cn: 'GitHub' }), []);
   assert.notDeepEqual(commitProblems({ ...ok, an: 'Someone Else' }), []);
   assert.notDeepEqual(commitProblems({ ...ok, ae: 'person@example.com' }), []);
   assert.notDeepEqual(commitProblems({ ...ok, cn: 'Someone Else' }), []);
