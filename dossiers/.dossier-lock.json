@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "docs": {
+    "vw-canary": {
+      "claims": {
+        "7b405ce63060": {
+          "text": "Runs on Node 22 or newer and installs one command, `vw-canary`.",
+          "line": 14,
+          "specs": [
+            "package.json:12",
+            "package.json:14"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "package.json": {
+              "path": "package.json",
+              "blob": "9209cd28b664ccd3633ff54b687117966574d307",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 12,
+                "end": 12,
+                "hash": "63d7929f0f3a771e09fd84a708ddfe66b232f366"
+              }
+            },
+            "package.json:14-14": {
+              "path": "package.json",
+              "blob": "9209cd28b664ccd3633ff54b687117966574d307",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 14,
+                "end": 14,
+                "hash": "67a4ba2e9f1db54928caa00e148ef448613104e4"
+              }
+            }
+          }
+        },
+        "888b73a77d98": {
+          "text": "Has no runtime or development dependencies, only Node built-ins.",
+          "line": 15,
+          "specs": [
+            "package.json"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "package.json": {
+              "path": "package.json",
+              "blob": "9209cd28b664ccd3633ff54b687117966574d307",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806"
+            }
+          }
+        },
+        "564d044e770e": {
+          "text": "Takes only version-shaped server and client arguments, so nothing can name another server, image or package.",
+          "line": 16,
+          "specs": [
+            "src/cli.mjs:31-32"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/cli.mjs": {
+              "path": "src/cli.mjs",
+              "blob": "bb8f6ddf8e26c6e4af224c9c3baf11e7e62f50d2",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 31,
+                "end": 32,
+                "hash": "e2ad89b750682b221bdd98cd6967154a5cb436bf"
+              }
+            }
+          }
+        },
+        "0e30ef17de01": {
+          "text": "A step fails on a non-zero exit, and also when the item is missing from the list, which catches an empty vault with exit 0.",
+          "line": 17,
+          "specs": [
+            "src/flow.mjs:115-117"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/flow.mjs": {
+              "path": "src/flow.mjs",
+              "blob": "4ac3a8912b4409df5cad88a5365f6efe5d49fddd",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 115,
+                "end": 117,
+                "hash": "1d8ae798a9eb6b7d52ca2c4191445494694fd350"
+              }
+            }
+          }
+        },
+        "91e89688c9ed": {
+          "text": "The second sync is forced, so the list shows what the server holds.",
+          "line": 18,
+          "specs": [
+            "src/flow.mjs:111"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/flow.mjs": {
+              "path": "src/flow.mjs",
+              "blob": "4ac3a8912b4409df5cad88a5365f6efe5d49fddd",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 111,
+                "end": 111,
+                "hash": "c4e0f355b50ff250bfc82227ee0766e36f206f71"
+              }
+            }
+          }
+        },
+        "dc2f00f5fcb3": {
+          "text": "`error` beats `fail` in the overall status, exit 2 over exit 1.",
+          "line": 19,
+          "specs": [
+            "src/report.mjs:58-59"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/report.mjs": {
+              "path": "src/report.mjs",
+              "blob": "411242701d8192fac591e9647349003419e28bb8",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 58,
+                "end": 59,
+                "hash": "7a2ca7a52b4f14e156ef645f0f348223c817fbe9"
+              }
+            }
+          }
+        },
+        "bddfc5fff6be": {
+          "text": "The JSON document carries `schema_version` 1.",
+          "line": 20,
+          "specs": [
+            "src/report.mjs:76"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/report.mjs": {
+              "path": "src/report.mjs",
+              "blob": "411242701d8192fac591e9647349003419e28bb8",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 76,
+                "end": 76,
+                "hash": "68784ea7ff67b7cde05d301848aa2a01ee86ed82"
+              }
+            }
+          }
+        },
+        "eb5dcc55080c": {
+          "text": "The container publishes only on loopback, keeps its data in tmpfs, and anything else from `docker port` is refused.",
+          "line": 24,
+          "specs": [
+            "src/server.mjs:75-76",
+            "src/server.mjs:88"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/server.mjs": {
+              "path": "src/server.mjs",
+              "blob": "f54c36cd36d326089c2eebcdfffa2c3fee2f2b05",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 75,
+                "end": 76,
+                "hash": "4ac71ebcc047c50b20e0e462f03a9d1f9942b523"
+              }
+            },
+            "src/server.mjs:88-88": {
+              "path": "src/server.mjs",
+              "blob": "f54c36cd36d326089c2eebcdfffa2c3fee2f2b05",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 88,
+                "end": 88,
+                "hash": "d5f09089d79a7f0ebc426968cc59276a57231d0b"
+              }
+            }
+          }
+        },
+        "6256c3ee2056": {
+          "text": "Every API request goes through a guard that allows only https on 127.0.0.1.",
+          "line": 25,
+          "specs": [
+            "src/register.mjs:7"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/register.mjs": {
+              "path": "src/register.mjs",
+              "blob": "c9d03ba2ed156a3e3c3df487c111a6d1ac7057c9",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 7,
+                "end": 7,
+                "hash": "91c110bddb89e4e4c255d0c33d582e4297dac36c"
+              }
+            }
+          }
+        },
+        "2ecb92ded0cb": {
+          "text": "The client gets a private home and only the listed environment variables from the caller.",
+          "line": 26,
+          "specs": [
+            "src/client.mjs:7",
+            "src/client.mjs:25"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/client.mjs": {
+              "path": "src/client.mjs",
+              "blob": "6933dc0d5254a656588c3ff3401bb6f4a1ec48fd",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 7,
+                "end": 7,
+                "hash": "dee8ce89814609b182a9eaf1a364c5fbd45ce716"
+              }
+            },
+            "src/client.mjs:25-25": {
+              "path": "src/client.mjs",
+              "blob": "6933dc0d5254a656588c3ff3401bb6f4a1ec48fd",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 25,
+                "end": 25,
+                "hash": "d4ea9cdb6bb4cad51ffa3c78bb405564e527ed48"
+              }
+            }
+          }
+        },
+        "27a2b6445be0": {
+          "text": "npm install scripts are off when the client is installed.",
+          "line": 27,
+          "specs": [
+            "src/client.mjs:38"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/client.mjs": {
+              "path": "src/client.mjs",
+              "blob": "6933dc0d5254a656588c3ff3401bb6f4a1ec48fd",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 38,
+                "end": 38,
+                "hash": "22d9e0420ce8f50e3fbd0b9919ff6b080d061646"
+              }
+            }
+          }
+        },
+        "409578cec0e4": {
+          "text": "The certificate has 127.0.0.1 as its only name, since `bw` refuses plain http.",
+          "line": 28,
+          "specs": [
+            "src/cert.mjs:41"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/cert.mjs": {
+              "path": "src/cert.mjs",
+              "blob": "87efa5c31fc5b54080eba7c606dcc417feb7be3e",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 41,
+                "end": 41,
+                "hash": "35dda233834b0ab38426bf0c0654f3aff4b36ea6"
+              }
+            }
+          }
+        },
+        "1c12a0412cf6": {
+          "text": "The account is registered with `node:crypto`: 600,000 PBKDF2 rounds and an RSA-2048 key pair.",
+          "line": 29,
+          "specs": [
+            "src/crypto.mjs:42",
+            "src/crypto.mjs:46"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/crypto.mjs": {
+              "path": "src/crypto.mjs",
+              "blob": "5d23520cc910757d3d45da536d6bc9a9ded3c17a",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 42,
+                "end": 42,
+                "hash": "d0b9865fa6f047b0248fab961385617fd6e931ad"
+              }
+            },
+            "src/crypto.mjs:46-46": {
+              "path": "src/crypto.mjs",
+              "blob": "5d23520cc910757d3d45da536d6bc9a9ded3c17a",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 46,
+                "end": 46,
+                "hash": "644787e9c3fe370084e5250966d4860581d1dae0"
+              }
+            }
+          }
+        },
+        "98a41d8312ce": {
+          "text": "Servers without the verification route get the older register route.",
+          "line": 30,
+          "specs": [
+            "src/register.mjs:51"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/register.mjs": {
+              "path": "src/register.mjs",
+              "blob": "c9d03ba2ed156a3e3c3df487c111a6d1ac7057c9",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 51,
+                "end": 51,
+                "hash": "b515916fd30059587666fcc53b595370b9a44e97"
+              }
+            }
+          }
+        },
+        "f219f605850d": {
+          "text": "Ctrl-C and SIGTERM run the cleanup first and exit 130 and 143.",
+          "line": 31,
+          "specs": [
+            "src/cleanup.mjs:18-20"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            "src/cleanup.mjs": {
+              "path": "src/cleanup.mjs",
+              "blob": "c53c25a553bcdda6a99ce5d3bb4c2ad858f6f041",
+              "commit": "c4c26e8084ce37fe6416b8d6c677096b58e0b806",
+              "range": {
+                "start": 18,
+                "end": 20,
+                "hash": "2d3393956b24dc9df5d1c3bdae3883ac8ab4e446"
+              }
+            }
+          }
+        },
+        "764bd69033c6": {
+          "text": "CI runs `node --test` on Node 22 and 24 for every pull request and once a week.",
+          "line": 35,
+          "specs": [
+            ".github/workflows/ci.yml:10",
+            ".github/workflows/ci.yml:24",
+            ".github/workflows/ci.yml:33"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            ".github/workflows/ci.yml": {
+              "path": ".github/workflows/ci.yml",
+              "blob": "05a6ccd8b8d4785f53e22071ddd8968edb764489",
+              "commit": "e364468dd3bfffb89053ed5f8498fe24b3044cfb",
+              "range": {
+                "start": 10,
+                "end": 10,
+                "hash": "21804e400e2a3ec8e04674fca782afdb3e31c3b4"
+              }
+            },
+            ".github/workflows/ci.yml:24-24": {
+              "path": ".github/workflows/ci.yml",
+              "blob": "05a6ccd8b8d4785f53e22071ddd8968edb764489",
+              "commit": "e364468dd3bfffb89053ed5f8498fe24b3044cfb",
+              "range": {
+                "start": 24,
+                "end": 24,
+                "hash": "15dd520b8b26147365ab494c73091525b65b99af"
+              }
+            },
+            ".github/workflows/ci.yml:33-33": {
+              "path": ".github/workflows/ci.yml",
+              "blob": "05a6ccd8b8d4785f53e22071ddd8968edb764489",
+              "commit": "e364468dd3bfffb89053ed5f8498fe24b3044cfb",
+              "range": {
+                "start": 33,
+                "end": 33,
+                "hash": "d77f637e7217eacf4b0809ff6b592af5b9ea60de"
+              }
+            }
+          }
+        },
+        "25d772a7b622": {
+          "text": "Dependabot opens grouped weekly updates for GitHub Actions and qualifying ones merge automatically once CI is green.",
+          "line": 36,
+          "specs": [
+            ".github/dependabot.yml",
+            ".github/scripts/automerge-eligible.mjs"
+          ],
+          "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99",
+          "files": {
+            ".github/dependabot.yml": {
+              "path": ".github/dependabot.yml",
+              "blob": "5e3a090199e4384ea98a662632c33699793ce495",
+              "commit": "e364468dd3bfffb89053ed5f8498fe24b3044cfb"
+            },
+            ".github/scripts/automerge-eligible.mjs": {
+              "path": ".github/scripts/automerge-eligible.mjs",
+              "blob": "4d76b76561799212bec89214b6695491b6ea0f60",
+              "commit": "e364468dd3bfffb89053ed5f8498fe24b3044cfb"
+            }
+          }
+        }
+      },
+      "pinnedAt": "2026-11-03T13:50:44.841Z",
+      "head": "3895f4733d1f1696c9b2fa833178c260bdc1bc99"
+    }
+  }
+}
